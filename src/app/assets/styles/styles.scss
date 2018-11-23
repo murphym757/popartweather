@@ -1,0 +1,103 @@
+// Miami 1985 Color Palette
+
+$violet: #d080d7;
+$hotPink: #e87fcd;
+$powderPink: #f9d3ff;
+$oceanGreen: #70bac9;
+$skyBlue: #75e2df;
+$softBlack: #272727;
+
+body {
+    display: table;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    background: no-repeat bottom center scroll;
+    background-color: $skyBlue;
+    background-blend-mode: multiply;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; 
+    color: $softBlack;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    color: $violet;
+    font-family: 'LemonMilk';
+}
+
+
+// Media Queries
+/* ---------------------------------------------------- */
+
+/* Small devices (Phones, 768px) */
+
+@media (max-width: 767px) and (orientation: portrait) {
+    
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+   
+}
+
+@media (max-width: 766px) and (orientation: landscape) {
+   
+}
+
+/* ---------------------------------------------------- */
+
+/* IPhone X and Pixel XL 2 */
+
+@media (min-width: 812px) and (max-width: 823px) and (orientation: portrait) {
+    
+}
+
+@media (min-width: 812px) and (max-width: 823px) and (orientation: landscape) {
+   
+}
+
+/* ---------------------------------------------------- */
+
+/* Ipad */
+
+@media (min-width: 768px) and (max-width: 811px) and (orientation: portrait) {
+    
+}
+
+@media (min-width: 824px) and (max-width: 1024px) and (orientation: landscape) {
+    
+}
+
+/* Ipad Pro */
+
+@media (min-width: 813px) and (max-width: 1024px) and (orientation: portrait) {
+    
+}
+
+@media (min-width: 1025px) and (max-width: 1439px) and (orientation: landscape) {
+   
+}
+
+/* ---------------------------------------------------- */
+
+/* MDPI Screens (Computers, 1440px and up) */
+
+@media (min-width: 1280px) and (max-width: 1280px) and (orientation: landscape) {
+   
+}
+
+/* ---------------------------------------------------- */
+
+/* Large devices (Computers, 1440px and up) */
+
+@media (min-width: 1440px) and (orientation: landscape) {
+    
+}
+
+/* ---------------------------------------------------- */
