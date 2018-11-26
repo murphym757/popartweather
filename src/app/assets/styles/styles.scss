@@ -1,17 +1,43 @@
 // Miami 1985 Color Palette
-
 $violet: #d080d7;
 $hotPink: #e87fcd;
 $powderPink: #f9d3ff;
 $oceanGreen: #70bac9;
-$skyBlue: #75e2df;
+$skyBlue: #a7d0e3;
 $softBlack: #272727;
+
+//Top Left Card
+$straw: #e1ce7a;
+$veryPaleYellow: #fbffb9;
+$peachOrange: #fdd692;
+$lightRedOchre: #ec7357;
+$tuscanRed: #754f44;
+
+//Top Right Card
+$shinyShamrock: #63a375;
+$desertSand: #ead2ac;
+$beachSand: #7a7664;
+$ruddyPink: #df928e;
+$spicyMix: #885053;
+
+//Bottom Left Card
+$caribbeanGreen: #06d6a0;
+$Isabelline: #ebebeb;
+$blueJeans: #54c6eb;
+$ube: #8a89c0;
+$silverPink: #cda2ab;
+
+//Bottom Right Card
+$shadowBlue: #6c8ead;
+$slateGray: #6f7d8c;
+$dimGray: #6c596e;
+$darkPuce: #4b2e39;
+$infraRed: #ef476f;
 
 body {
     display: table;
     width: 100%;
     height: auto;
-    text-align: center;
     background: no-repeat bottom center scroll;
     background-color: $skyBlue;
     background-blend-mode: multiply;
@@ -20,6 +46,7 @@ body {
     background-attachment: fixed;
     background-size: cover; 
     color: $softBlack;
+    font-family: 'LemonMilk';
 }
 
 img {
@@ -27,11 +54,270 @@ img {
     height: auto;
 }
 
-h1 {
-    color: $violet;
-    font-family: 'LemonMilk';
+.card {
+    background-color: $skyBlue;
+    border: none;
 }
 
+.locationName-card1,
+.locationName-card2,
+.locationName-card3,
+.locationName-card4,
+.currentTemp-card1,
+.currentTemp-card2,
+.currentTemp-card3,
+.currentTemp-card4,
+.weatherPic-card1,
+.weatherPic-card2,
+.weatherPic-card3,
+.weatherPic-card4,
+.weatherDescription-card1,
+.weatherDescription-card2,
+.weatherDescription-card3,
+.weatherDescription-card4,
+.coords-card1,
+.coords-card2,
+.coords-card3,
+.coords-card4,
+.logo {
+    text-align: center;
+    justify-content: center;
+}
+
+// Forms
+input {
+    background-color: $skyBlue;
+    color: white;
+}
+
+.form-control:focus {
+    border-color: white;
+    box-shadow: inset 0 1px 1px white;
+  }
+
+.form-weatherOrPop::-moz-placeholder {
+    color: white;
+}
+
+.form-weatherOrPop:-ms-input-placeholder {
+    color: white;
+}
+
+.form-weatherOrPop::-webkit-input-placeholder {
+    color: white;
+}
+
+.form-weatherOrPop:focus {
+    border-style: solid;
+    border-color: white;
+    background-color: $skyBlue;
+    color: white;
+}
+
+.form-weatherOrPop {
+    color: white;
+    background-color: $skyBlue;
+}
+
+//Basic Styling for Card 1
+.card1 { 
+    color: $straw;
+    background-color: $tuscanRed;
+    border: 3px solid $skyBlue;
+    border-left: 6px solid $skyBlue;
+    border-top: 6px solid $skyBlue;
+}
+.locationName-card1,
+.currentTemp-card1,
+.weatherPic-card1,
+.weatherDescription-card1 {
+    -webkit-text-stroke: 1px $lightRedOchre;
+    text-shadow: 0px 0.1px 0.03px $lightRedOchre,
+                 0px 0.2px 0.06px $lightRedOchre,
+                 0px 0.3px 0.09px $lightRedOchre,
+                 0px 0.4px 0.12px $lightRedOchre,
+                 0px 0.5px 0.15px $lightRedOchre,
+                 0px 0.6px 0.18px $lightRedOchre,
+                 0px 0.7px 0.21px $lightRedOchre,
+                 0px 0.8px 0.24px $lightRedOchre,
+                 0px 0.9px 0.27px $lightRedOchre,
+                 0px 1px   0.30px $lightRedOchre,
+                 0px 1.1px 0.33px $lightRedOchre,
+                 0px 1.2px 0.36px $lightRedOchre,
+                 0px 1.3px 0.39px $lightRedOchre,
+                 0px 1.4px 0.42px $lightRedOchre,
+                 0px 1.5px 0.45px $lightRedOchre,
+                 0px 1.6px 0.48px $lightRedOchre,
+                 0px 1.7px 0.51px $lightRedOchre,
+                 0px 1.8px 0.54px $lightRedOchre,
+                 0px 1.9px 0.57px $lightRedOchre,
+                 0px 2px   0.60px $lightRedOchre,
+                 0px 2.1px 0.63px $lightRedOchre,
+                 0px 2.2px 0.66px $lightRedOchre,
+                 0px 2.3px 0.69px $lightRedOchre,
+                 0px 2.4px 0.72px $lightRedOchre,
+                 0px 2.5px 0.75px $lightRedOchre,
+                 0px 2.6px 0.78px $lightRedOchre,
+                 0px 2.7px 0.81px $lightRedOchre,
+                 0px 2.8px 0.84px $lightRedOchre,
+                 0px 2.9px 0.87px $lightRedOchre,
+                 0px 3px   0.90px $lightRedOchre,
+                 0px 3px   3px $lightRedOchre;
+}
+
+.coords-card1 {
+    text-shadow: 1px 0.5px 0 $lightRedOchre,
+}
+
+//Basic Styling for Card 2
+.card2 { 
+    color: $desertSand;
+    background-color: $shadowBlue;
+    border: 3px solid $skyBlue;
+    border-right: 6px solid $skyBlue;
+    border-top: 6px solid $skyBlue;
+}
+.locationName-card2,
+.currentTemp-card2,
+.weatherPic-card2,
+.weatherDescription-card2 {
+    -webkit-text-stroke: 1px $spicyMix;
+    text-shadow: 0px 0.1px 0.03px $spicyMix,
+                 0px 0.2px 0.06px $spicyMix,
+                 0px 0.3px 0.09px $spicyMix,
+                 0px 0.4px 0.12px $spicyMix,
+                 0px 0.5px 0.15px $spicyMix,
+                 0px 0.6px 0.18px $spicyMix,
+                 0px 0.7px 0.21px $spicyMix,
+                 0px 0.8px 0.24px $spicyMix,
+                 0px 0.9px 0.27px $spicyMix,
+                 0px 1px   0.30px $spicyMix,
+                 0px 1.1px 0.33px $spicyMix,
+                 0px 1.2px 0.36px $spicyMix,
+                 0px 1.3px 0.39px $spicyMix,
+                 0px 1.4px 0.42px $spicyMix,
+                 0px 1.5px 0.45px $spicyMix,
+                 0px 1.6px 0.48px $spicyMix,
+                 0px 1.7px 0.51px $spicyMix,
+                 0px 1.8px 0.54px $spicyMix,
+                 0px 1.9px 0.57px $spicyMix,
+                 0px 2px   0.60px $spicyMix,
+                 0px 2.1px 0.63px $spicyMix,
+                 0px 2.2px 0.66px $spicyMix,
+                 0px 2.3px 0.69px $spicyMix,
+                 0px 2.4px 0.72px $spicyMix,
+                 0px 2.5px 0.75px $spicyMix,
+                 0px 2.6px 0.78px $spicyMix,
+                 0px 2.7px 0.81px $spicyMix,
+                 0px 2.8px 0.84px $spicyMix,
+                 0px 2.9px 0.87px $spicyMix,
+                 0px 3px   0.90px $spicyMix,
+                 0px 3px   3px $spicyMix;
+}
+
+.coords-card2 {
+    text-shadow: 1px 0.5px 0 $spicyMix,
+}
+
+//Basic Styling for Card 3
+.card3 { 
+    color: $silverPink;
+    background-color: $dimGray;
+    border: 3px solid $skyBlue;
+    border-left: 6px solid $skyBlue;
+    border-bottom: 6px solid $skyBlue;
+}
+.locationName-card3,
+.currentTemp-card3,
+.weatherPic-card3,
+.weatherDescription-card3 {
+    -webkit-text-stroke: 1px $beachSand;
+    text-shadow: 0px 0.1px 0.03px $beachSand,
+                 0px 0.2px 0.06px $beachSand,
+                 0px 0.3px 0.09px $beachSand,
+                 0px 0.4px 0.12px $beachSand,
+                 0px 0.5px 0.15px $beachSand,
+                 0px 0.6px 0.18px $beachSand,
+                 0px 0.7px 0.21px $beachSand,
+                 0px 0.8px 0.24px $beachSand,
+                 0px 0.9px 0.27px $beachSand,
+                 0px 1px   0.30px $beachSand,
+                 0px 1.1px 0.33px $beachSand,
+                 0px 1.2px 0.36px $beachSand,
+                 0px 1.3px 0.39px $beachSand,
+                 0px 1.4px 0.42px $beachSand,
+                 0px 1.5px 0.45px $beachSand,
+                 0px 1.6px 0.48px $beachSand,
+                 0px 1.7px 0.51px $beachSand,
+                 0px 1.8px 0.54px $beachSand,
+                 0px 1.9px 0.57px $beachSand,
+                 0px 2px   0.60px $beachSand,
+                 0px 2.1px 0.63px $beachSand,
+                 0px 2.2px 0.66px $beachSand,
+                 0px 2.3px 0.69px $beachSand,
+                 0px 2.4px 0.72px $beachSand,
+                 0px 2.5px 0.75px $beachSand,
+                 0px 2.6px 0.78px $beachSand,
+                 0px 2.7px 0.81px $beachSand,
+                 0px 2.8px 0.84px $beachSand,
+                 0px 2.9px 0.87px $beachSand,
+                 0px 3px   0.90px $beachSand,
+                 0px 3px   3px $beachSand;
+}
+
+.coords-card3 {
+    text-shadow: 1px 0.5px 0 $beachSand,
+}
+
+//Basic Styling for Card 4
+.card4 { 
+    color: $infraRed;
+    background-color: $caribbeanGreen;
+    border: 3px solid $skyBlue;
+    border-right: 6px solid $skyBlue;
+    border-bottom: 6px solid $skyBlue;
+}
+.locationName-card4,
+.currentTemp-card4,
+.weatherPic-card4,
+.weatherDescription-card4 {
+    -webkit-text-stroke: 1px $Isabelline;
+    text-shadow: 0px 0.1px 0.03px $Isabelline,
+                 0px 0.2px 0.06px $Isabelline,
+                 0px 0.3px 0.09px $Isabelline,
+                 0px 0.4px 0.12px $Isabelline,
+                 0px 0.5px 0.15px $Isabelline,
+                 0px 0.6px 0.18px $Isabelline,
+                 0px 0.7px 0.21px $Isabelline,
+                 0px 0.8px 0.24px $Isabelline,
+                 0px 0.9px 0.27px $Isabelline,
+                 0px 1px   0.30px $Isabelline,
+                 0px 1.1px 0.33px $Isabelline,
+                 0px 1.2px 0.36px $Isabelline,
+                 0px 1.3px 0.39px $Isabelline,
+                 0px 1.4px 0.42px $Isabelline,
+                 0px 1.5px 0.45px $Isabelline,
+                 0px 1.6px 0.48px $Isabelline,
+                 0px 1.7px 0.51px $Isabelline,
+                 0px 1.8px 0.54px $Isabelline,
+                 0px 1.9px 0.57px $Isabelline,
+                 0px 2px   0.60px $Isabelline,
+                 0px 2.1px 0.63px $Isabelline,
+                 0px 2.2px 0.66px $Isabelline,
+                 0px 2.3px 0.69px $Isabelline,
+                 0px 2.4px 0.72px $Isabelline,
+                 0px 2.5px 0.75px $Isabelline,
+                 0px 2.6px 0.78px $Isabelline,
+                 0px 2.7px 0.81px $Isabelline,
+                 0px 2.8px 0.84px $Isabelline,
+                 0px 2.9px 0.87px $Isabelline,
+                 0px 3px   0.90px $Isabelline,
+                 0px 3px   3px $Isabelline;
+}
+
+.coords-card4 {
+    text-shadow: 1px 0.5px 0 $Isabelline,
+}
 
 // Media Queries
 /* ---------------------------------------------------- */
