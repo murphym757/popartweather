@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Timestamp from 'react-timestamp';
 
 export default class MainSource extends Component {
     constructor(props) {
@@ -20,7 +21,7 @@ export default class MainSource extends Component {
             mapBox: {
 
             },
-            cityName: "Miami",
+            temp: '',
             location: null,
             locationLat: null,
             locationLon: null,
@@ -57,18 +58,8 @@ export default class MainSource extends Component {
             })
     }
 
-
-      /* Test URL (Does Work)
-      http://api.openweathermap.org/data/2.5/find?q=Miami&units=imperial&appid=ae0766143a31a2063be8be2843baf16c
-      */
     handleSubmit = (e) => {
     e.preventDefault();
-        // OpenWeather API
-        const baseUrl = 'http://api.openweathermap.org/data/2.5/find?q=';
-        const City = this.state.cityName;
-        const unitsApiID = '&units=imperial&appid=';
-        const APIKEY = "ae0766143a31a2063be8be2843baf16c";
-        
         // Dark Sky
         const darkSkyProxy = "https://cors-anywhere.herokuapp.com/";
         const darkSkyBaseUrl = "https://api.darksky.net/forecast/"
@@ -79,63 +70,51 @@ export default class MainSource extends Component {
 
         //Weather Icons
         const cloudyPic = "fas fa-cloud";
-        const drizzlePic = "fas fa-cloud-rain";
-        const thunderPic = "fas fa-bolt";
-        const rainPic = "fas fa-cloud-showers-heavy";
+        const rainPic = "fas fa-cloud-rain";
+        const windPic = "fas fa-wind";
+        const sleetPic = "fas fa-cloud-showers-heavy";
         const snowPic = "fas fa-cloud-meatball";
         const atmospherePic = "fas fa-water";
-        const clearPic = "fas fa-sun";
-        axios.get(''+ baseUrl + City + unitsApiID + APIKEY +'')
-            .then(res => {
-                if(res.data.cod === '404') {
-                    this.setState({
-                        errorCode: '404',
-                        errorMessage: "https://media.giphy.com/media/wYyTHMm50f4Dm/giphy.gif"
-                    })
-                } else {
-                    let weatherId = res.data.list[0].weather[0].id; //Weather Id
-                    if(weatherId <= 232) {
-                        this.setState({weatherIcon: thunderPic})
-                    } else if(weatherId >= 300 && weatherId <= 499) {
-                        this.setState({weatherIcon: drizzlePic});
-                    } else if(weatherId >= 500 && weatherId <= 531) {
-                        this.setState({weatherIcon: rainPic});
-                    } else if(weatherId >= 600 && weatherId <= 622) {
-                        this.setState({weatherIcon: snowPic});
-                    } else if(weatherId >= 701 && weatherId <= 781) {
-                        this.setState({weatherIcon: atmospherePic});
-                    } else if(weatherId === 800) {
-                        this.setState({weatherIcon: clearPic});
-                    } else if(weatherId >= 801 && weatherId <= 804) {
-                        this.setState({weatherIcon: cloudyPic});
-                    }
-                }
-                this.setState({
-                    currentTemp: {
-                        temp: res.data.list[0].main.temp, //Current Temperature
-                        tempMin: res.data.list[0].main.temp_min, //Hourly Low Temperature
-                        tempMax: res.data.list[0].main.temp_max, //Hourly High Temperature
-                        humidity: res.data.list[0].main.humidity + "%", //Humidity
-                        windSpeed: res.data.list[0].wind.speed + " mph", //Windspeed
-                    },
-                    locationInfo: {
-                        cityName: res.data.list[0].name, //City Name
-                        country: res.data.list[0].sys.country, //Country Abbreviation
-                        location: res.data.list[0].name + ", " + res.data.list[0].sys.country //Full Location
-                    },
-                    generalInfo: {
-                        coordLat: res.data.list[0].coord.lat, //Latitude 
-                        coordLon: res.data.list[0].coord.lon, //Longitude
-                        weatherMain: res.data.list[0].weather[0].main, //Description
-                        weatherDescription: res.data.list[0].weather[0].description //Detailed Description
-                    }
-                });
-            })
-            axios.get(darkSkyProxy + darkSkyBaseUrl + darkSkyAPI +'/' + darkSkyCoordinates)
+        const clearDayPic = "fas fa-sun";
+        const clearNightPic = "fas fa-moon";
+        const partlyCloudyDay = "fas fa-cloud-sun";
+        const partlyCloudyNight = "fas fa-cloud-moon";
+        const arrowUp = "fas fa-arrow-up";
+        axios.get(darkSkyProxy + darkSkyBaseUrl + darkSkyAPI +'/' + darkSkyCoordinates)
                 .then(res => {
+                    let icon = res.data.currently.icon; //Weather Id
+                        if(icon === 'clear-day') {
+                            this.setState({weatherIcon: clearDayPic})
+                        } else if(icon === 'clear-night') {
+                            this.setState({weatherIcon: clearNightPic});
+                        } else if(icon === 'partly-cloudy-day') {
+                            this.setState({weatherIcon: partlyCloudyDay});
+                        } else if(icon === 'partly-cloudy-night') {
+                            this.setState({weatherIcon: partlyCloudyNight});
+                        } else if(icon === 'cloudy') {
+                            this.setState({weatherIcon: cloudyPic});
+                        } else if(icon === 'rain') {
+                            this.setState({weatherIcon: rainPic});
+                        } else if(icon === 'sleet') {
+                            this.setState({weatherIcon: sleetPic});
+                        } else if(icon === 'snow') {
+                            this.setState({weatherIcon: snowPic});
+                        } else if(icon === 'wind') {
+                            this.setState({weatherIcon: windPic});
+                        } else if(icon === 'fog') {
+                            this.setState({weatherIcon: atmospherePic});
+                        }
+                        
+                    const tempIcon = " °F";
+                    const sunriseTime = res.data.daily.data[0].sunriseTime;
                     this.setState({
                         darkSky: {
-                            temp: res.data.currently.temperature
+                            temp: Math.trunc(res.data.currently.temperature) + tempIcon,
+                            daySummary: res.data.daily.data[0].summary,
+                            sunriseAgo: <Timestamp time={sunriseTime} format='ago' includeDay/>,
+                            sunriseTime: <Timestamp time={sunriseTime} format='time' includeDay/>,
+                            sunriseLogo: clearDayPic,
+                            sunriseArrow: arrowUp
                         }
                     });
                 })
@@ -143,119 +122,109 @@ export default class MainSource extends Component {
 
 
     render() {
-        const tempNow = Math.trunc(this.state.currentTemp.temp);
         return (
-            <div class="container">
+            <div class="container-fluid">
                 <div class="card">
-                <img class="logo mx-auto" src="./src/app/assets/images/Weather-or-Pop.svg" alt="Smiley face" height="90" width="90" />
-                    <form class="form-group" onSubmit={this.locationSubmit.bind(this)}>
-                        <input 
-                            type="text" 
-                            value={this.state.location} 
-                            onChange={this.locationChange} 
-                            class="form-control form-weatherOrPop" 
-                            name="Location" 
-                            id="locationName" 
-                            placeholder="Location"
-                        />
-                        <label>
-                            Coordinates: {this.state.mapBox.latitude + ", " + this.state.mapBox.longitude}
-                        </label>
-                    </form>
-                    <form class="form-group" onSubmit={this.handleSubmit}>
-                        <input 
-                            type="text" 
-                            value={this.state.locationLat} 
-                            onChange={this.latSet} 
-                            class="form-control form-weatherOrPop" 
-                            name="Latitude" 
-                            id="latitude" 
-                            placeholder="Latitude"
-                        />
-                        <input 
-                            type="text" 
-                            value={this.state.locationLon} 
-                            onChange={this.lonSet} 
-                            class="form-control form-weatherOrPop" 
-                            name="Longitude" 
-                            id="longitude" 
-                            placeholder="Longitude"
-                        />
-                        <button 
-                            type="button"
-                            onClick = {this.handleSubmit.bind(this)}
-                            class="btn btn-souse-extra btn-lg btn-block extra-button-font">
-                                FIND WEATHER
-                        </button>
-                    </form>
-                    <div class="container-fluid">
-                        <div class="row"> {/*Top Row*/}
-                            <div class="card card1 col-6 rounded-0"> {/*Top Left Card*/}
-                                <h1 class="locationName-card1 pb-2">{this.state.darkSky.temp}</h1>
-                                <h1 class="currentTemp-card1">{tempNow} &#176;F</h1>
+                    <img class="logo mx-auto" src="./src/app/assets/images/Weather-or-Pop.svg" alt="Smiley face" height="90" width="90" />
+                    <div class="container">
+                        <div class="row"> 
+                            <form class="form-group col-sm-6" onSubmit={this.locationSubmit.bind(this)}>
+                                <input 
+                                    type="text" 
+                                    value={this.state.location} 
+                                    onChange={this.locationChange} 
+                                    class="form-control form-weatherOrPop" 
+                                    name="Location" 
+                                    id="locationName" 
+                                    placeholder="Location"
+                                />
+                                <label>
+                                    Coordinates: {this.state.mapBox.latitude + ", " + this.state.mapBox.longitude}
+                                </label>
+                            </form>
+                            <form class="form-group col-sm-6" onSubmit={this.handleSubmit}>
+                                <input 
+                                    type="text" 
+                                    value={this.state.locationLat} 
+                                    onChange={this.latSet} 
+                                    class="form-control form-weatherOrPop" 
+                                    name="Latitude" 
+                                    id="latitude" 
+                                    placeholder="Latitude"
+                                />
+                                <input 
+                                    type="text" 
+                                    value={this.state.locationLon} 
+                                    onChange={this.lonSet} 
+                                    class="form-control form-weatherOrPop" 
+                                    name="Longitude" 
+                                    id="longitude" 
+                                    placeholder="Longitude"
+                                />
+                                <button 
+                                    type="button"
+                                    onClick = {this.handleSubmit.bind(this)}
+                                    class="btn btn-souse-extra btn-lg btn-block extra-button-font">
+                                        FIND WEATHER
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
                                 <div class="row">
-                                    <h2 class="col-12 weatherPic-card1"><i class={this.state.weatherIcon}></i></h2>
-                                    <h3 class="col-12 weatherDescription-card1">{this.state.generalInfo.weatherDescription}</h3>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 coords-card1">
-                                        {this.state.generalInfo.coordLat}
+                                    <div class="col-sm-6"> {/* First Half of Middle Section */}
+                                        <div class="row">
+                                            <div class="locationTitle col-12">
+                                                <h1 class="location-size">{this.state.mapBox.location}</h1>
+                                            </div>
+                                            <div class="currentTemp col-12">
+                                                <div class="row">
+                                                    <div class="col-6 currentTempDegrees">
+                                                        <h1 class="currentTempIcon-size">{this.state.darkSky.temp}</h1>
+                                                    </div>
+                                                    <div class="col-6 currentTempIcon">
+                                                        <h1 class="currentTempIcon-size"><i class={this.state.weatherIcon}></i></h1>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 summaryForDay">
+                                                        <h1 class="summaryForDay-size">{this.state.darkSky.daySummary}</h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-6 coords-card1">
-                                        {this.state.generalInfo.coordLon}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card card2 col-6 rounded-0"> {/*Top Right Card*/}
-                                <h1 class="locationName-card2 pb-2">{this.state.locationInfo.location}</h1>
-                                <h1 class="currentTemp-card2">{tempNow} &#176;F</h1>
-                                <div class="row">
-                                    <h2 class="col-12 weatherPic-card2"><i class={this.state.weatherIcon}></i></h2>
-                                    <h3 class="col-12 weatherDescription-card2">{this.state.generalInfo.weatherDescription}</h3>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 coords-card2">
-                                        {this.state.generalInfo.coordLat}
-                                    </div>
-                                    <div class="col-6 coords-card2">
-                                        {this.state.generalInfo.coordLon}
+                                    <div class="col-sm-6"> {/* Second Half of Middle Section */}
+                                        <div class="col-8"></div>
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="sunriseLogo col-12">
+                                                    <div class="row sunArrowCombo">
+                                                        <h1 class="sunriseLogo-size">
+                                                            <i class={this.state.darkSky.sunriseLogo}></i>
+                                                        </h1>
+                                                        <h1 class="sunriseLogo-size">
+                                                            <i class={this.state.darkSky.sunriseArrow}></i>
+                                                        </h1>
+                                                    </div>
+                                                </div>
+                                                <div class="sunriseData col-12">
+                                                    <div class="row">
+                                                    <h6 class="sunriseSunset-size col-12">{this.state.darkSky.sunriseTime}</h6>
+                                                    <h6 class="sunriseSunset-size col-12">{this.state.darkSky.sunriseAgo}</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row"> {/*Bottom Row*/}
-                            <div class="card card3 col-6 rounded-0"> {/*Bottom Left Card*/}
-                                <h1 class="locationName-card3 pb-2">{this.state.locationInfo.location}</h1>
-                                <h1 class="currentTemp-card3">{tempNow} &#176;F</h1>
-                                <div class="row">
-                                    <h2 class="col-12 weatherPic-card3"><i class={this.state.weatherIcon}></i></h2>
-                                    <h3 class="col-12 weatherDescription-card3">{this.state.generalInfo.weatherDescription}</h3>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 coords-card3">
-                                        {this.state.generalInfo.coordLat}
-                                    </div>
-                                    <div class="col-6 coords-card3">
-                                        {this.state.generalInfo.coordLon}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card card4 col-6 rounded-0"> {/*Bottom Right Card*/}
-                                <h1 class="locationName-card4 pb-2">{this.state.locationInfo.location}</h1>
-                                <h1 class="currentTemp-card4">{tempNow} &#176;F</h1>
-                                <div class="row">
-                                    <h2 class="col-12 weatherPic-card4"><i class={this.state.weatherIcon}></i></h2>
-                                    <h3 class="col-12 weatherDescription-card4">{this.state.generalInfo.weatherDescription}</h3>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 coords-card4">
-                                        {this.state.generalInfo.coordLat}
-                                    </div>
-                                    <div class="col-6 coords-card4">
-                                        {this.state.generalInfo.coordLon}
-                                    </div>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
                         </div>
                     </div>
                 </div>
