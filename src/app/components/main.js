@@ -52,7 +52,8 @@ export default class MainSource extends Component {
                     mapBox: {
                         location: res.data.features[0].place_name,
                         latitude: res.data.features[0].center[1],
-                        longitude: res.data.features[0].center[0]
+                        longitude: res.data.features[0].center[0],
+                        coordinates: "Coordinates: " + "("+ res.data.features[0].center[1] + ", " + res.data.features[0].center[0] + ")"
                     }
                 });
             })
@@ -80,6 +81,12 @@ export default class MainSource extends Component {
         const partlyCloudyDay = "fas fa-cloud-sun";
         const partlyCloudyNight = "fas fa-cloud-moon";
         const arrowUp = "fas fa-arrow-up";
+        const arrowDown = "fas fa-arrow-down";
+        const umbrella = "fas fa-umbrella";
+        const temperatureLow = "fas fa-temperature-low";
+        const temperatureHigh = "fas fa-temperature-high";
+        const temperatureLowAlt ="fas fa-thermometer-quarter";
+        const temperatureHighAlt ="fas fa-thermometer-full";
         axios.get(darkSkyProxy + darkSkyBaseUrl + darkSkyAPI +'/' + darkSkyCoordinates)
                 .then(res => {
                     let icon = res.data.currently.icon; //Weather Id
@@ -107,14 +114,35 @@ export default class MainSource extends Component {
                         
                     const tempIcon = " °F";
                     const sunriseTime = res.data.daily.data[0].sunriseTime;
+                    const sunsetTime = res.data.daily.data[0].sunsetTime;
                     this.setState({
                         darkSky: {
                             temp: Math.trunc(res.data.currently.temperature) + tempIcon,
+                            humidity: Math.trunc(res.data.currently.humidity * 100) + "%",
+                            windSpeed: Math.trunc(res.data.currently.windSpeed) + " mph",
+                            rainChance: Math.trunc(res.data.currently.precipProbability * 100) + "%",
                             daySummary: res.data.daily.data[0].summary,
+                            temperatureHigh: Math.trunc(res.data.daily.data[0].temperatureHigh) + tempIcon,
+                            temperatureLow: Math.trunc(res.data.daily.data[0].temperatureLow) + tempIcon,
                             sunriseAgo: <Timestamp time={sunriseTime} format='ago' includeDay/>,
                             sunriseTime: <Timestamp time={sunriseTime} format='time' includeDay/>,
+                            sunsetAgo: <Timestamp time={sunsetTime} format='ago' includeDay/>,
+                            sunsetTime: <Timestamp time={sunsetTime} format='time' includeDay/>,
                             sunriseLogo: clearDayPic,
-                            sunriseArrow: arrowUp
+                            sunriseArrow: arrowUp,
+                            sunsetArrow: arrowDown,
+                            rainChanceUmbrella: umbrella,
+                            highTemperatureLogo: temperatureHigh,
+                            lowTemperatureLogo: temperatureLow,
+                            highTemperatureLogoAlt: temperatureHighAlt,
+                            lowTemperatureLogoAlt: temperatureLowAlt,
+                            windLogo: windPic,
+                            humidityLogo: atmospherePic,
+                            rainChanceUmbrellaTitle: "Precipitation",
+                            todayHighTitle: "Today's High",
+                            todayLowTitle: "Today's Low",
+                            humidityTitle: "Humidity",
+                            windTitle: "Wind Speed"
                         }
                     });
                 })
@@ -139,7 +167,7 @@ export default class MainSource extends Component {
                                     placeholder="Location"
                                 />
                                 <label>
-                                    Coordinates: {this.state.mapBox.latitude + ", " + this.state.mapBox.longitude}
+                                    {this.state.mapBox.coordinates}
                                 </label>
                             </form>
                             <form class="form-group col-sm-6" onSubmit={this.handleSubmit}>
@@ -174,15 +202,15 @@ export default class MainSource extends Component {
                         <div class="row">
                             <div class="col-12">
                                 <div class="row">
-                                    <div class="col-sm-6"> {/* First Half of Middle Section */}
+                                    <div class="col-sm-6 pb-4"> {/* First Half of Middle Section */}
                                         <div class="row">
                                             <div class="locationTitle col-12">
-                                                <h1 class="location-size">{this.state.mapBox.location}</h1>
+                                                <h2 class="location-size">{this.state.mapBox.location}</h2>
                                             </div>
                                             <div class="currentTemp col-12">
                                                 <div class="row">
                                                     <div class="col-6 currentTempDegrees">
-                                                        <h1 class="currentTempIcon-size">{this.state.darkSky.temp}</h1>
+                                                        <h2 class="currentTemp-size">{this.state.darkSky.temp}</h2>
                                                     </div>
                                                     <div class="col-6 currentTempIcon">
                                                         <h1 class="currentTempIcon-size"><i class={this.state.weatherIcon}></i></h1>
@@ -190,30 +218,151 @@ export default class MainSource extends Component {
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-12 summaryForDay">
-                                                        <h1 class="summaryForDay-size">{this.state.darkSky.daySummary}</h1>
+                                                        <h3 class="summaryForDay-size">{this.state.darkSky.daySummary}</h3>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6"> {/* Second Half of Middle Section */}
-                                        <div class="col-8"></div>
-                                        <div class="col-4">
-                                            <div class="row">
-                                                <div class="sunriseLogo col-12">
-                                                    <div class="row sunArrowCombo">
-                                                        <h1 class="sunriseLogo-size">
-                                                            <i class={this.state.darkSky.sunriseLogo}></i>
-                                                        </h1>
-                                                        <h1 class="sunriseLogo-size">
-                                                            <i class={this.state.darkSky.sunriseArrow}></i>
-                                                        </h1>
+                                    <div class="col-sm-6 pb-4"> {/* Second Half of Middle Section */}
+                                        <div class="row"> {/*  Top Row (Second Half of Middle Section) */}
+                                            <div class="col-4">
+                                                <div class="row">
+                                                    <div class="rainLogo col-12">
+                                                        <div class="row rainCombo">
+                                                            <h3 class="iconFont col-12"><i class={this.state.darkSky.rainChanceUmbrella}></i></h3>
+                                                            <h3 class="dataFont col-12">{this.state.darkSky.rainChance}</h3>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="sunriseData col-12">
-                                                    <div class="row">
-                                                    <h6 class="sunriseSunset-size col-12">{this.state.darkSky.sunriseTime}</h6>
-                                                    <h6 class="sunriseSunset-size col-12">{this.state.darkSky.sunriseAgo}</h6>
+                                                <div class="row">
+                                                    <div class="rainLogo col-12">
+                                                        <div class="row rainCombo">
+                                                            <h6 class="contentTitleFont col-12">{this.state.darkSky.rainChanceUmbrellaTitle}</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4"></div>
+                                            <div class="col-4">
+                                                <div class="row">
+                                                    <div class="sunriseLogo col-12">
+                                                        <div class="row sunArrowCombo">
+                                                            <h3 class="iconFont pr-1">
+                                                                <i class={this.state.darkSky.sunriseLogo}></i>
+                                                            </h3>
+                                                            <h3 class="iconFont">
+                                                                <i class={this.state.darkSky.sunriseArrow}></i>
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sunriseData col-12">
+                                                        <div class="row">
+                                                            <h3 class="dataFont col-12">{this.state.darkSky.sunriseTime}</h3>
+                                                            <h6 class="contentTitleFont col-12">{this.state.darkSky.sunriseAgo}</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row pt-4 pb-4"> {/*  Second Row (Second Half of Middle Section) */}
+                                            <div class="col-12">
+                                                <div class="row tempsHighLow">
+                                                    <div class ="container-fluid">
+                                                        <div class="col-12">
+                                                            <div class="row">
+                                                                <div class="temperatureDataHigh col-6">
+                                                                    <div class="row tempCombo">
+                                                                        <h3 class="iconFont col-12">
+                                                                            <i class={this.state.darkSky.highTemperatureLogoAlt}></i>
+                                                                        </h3>
+                                                                        <h3 class="dataFont col-12">
+                                                                            {this.state.darkSky.temperatureHigh}
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="tempLogo col-12">
+                                                                            <div class="row tempCombo">
+                                                                                <h6 class="contentTitleFont col-12">{this.state.darkSky.todayHighTitle}</h6>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="temperatureDataLow col-6">
+                                                                    <div class="row tempCombo">
+                                                                        <h3 class="iconFont col-12">
+                                                                            <i class={this.state.darkSky.lowTemperatureLogoAlt}></i>
+                                                                        </h3>
+                                                                        <h3 class="dataFont col-12">
+                                                                            {this.state.darkSky.temperatureLow}
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="tempLogo col-12">
+                                                                            <div class="row tempCombo">
+                                                                                <h6 class="contentTitleFont col-12">{this.state.darkSky.todayLowTitle}</h6>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row"> {/*  Third Row (Second Half of Middle Section) */}
+                                            <div class="col-4">
+                                                <div class="row">
+                                                    <div class="humidityLogo col-12">
+                                                        <div class="row humidityCombo">
+                                                            <h3 class="iconFont col-12"><i class={this.state.darkSky.humidityLogo}></i></h3>
+                                                            <h3 class="dataFont col-12">{this.state.darkSky.humidity}</h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="humidityLogo col-12">
+                                                        <div class="row humidityCombo">
+                                                            <h6 class="contentTitleFont col-12">{this.state.darkSky.humidityTitle}</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="row">
+                                                    <div class="windLogo col-12">
+                                                        <div class="row windCombo">
+                                                            <h3 class="iconFont col-12"><i class={this.state.darkSky.windLogo}></i></h3>
+                                                            <h3 class="dataFont col-12">{this.state.darkSky.windSpeed}</h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="windLogo col-12">
+                                                        <div class="row windCombo">
+                                                            <h6 class="contentTitleFont col-12">{this.state.darkSky.windTitle}</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="row">
+                                                    <div class="sunriseLogo col-12">
+                                                        <div class="row sunArrowCombo">
+                                                            <h3 class="iconFont pr-1">
+                                                                <i class={this.state.darkSky.sunriseLogo}></i>
+                                                            </h3>
+                                                            <h3 class="iconFont">
+                                                                <i class={this.state.darkSky.sunsetArrow}></i>
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sunriseData col-12">
+                                                        <div class="row">
+                                                            <h3 class="dataFont col-12">{this.state.darkSky.sunsetTime}</h3>
+                                                            <h6 class="contentTitleFont col-12">{this.state.darkSky.sunsetAgo}</h6>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
