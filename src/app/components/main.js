@@ -120,7 +120,7 @@ export default class MainSource extends Component {
                             temp: Math.trunc(res.data.currently.temperature) + tempIcon,
                             humidity: Math.trunc(res.data.currently.humidity * 100) + "%",
                             windSpeed: Math.trunc(res.data.currently.windSpeed) + " mph",
-                            rainChance: Math.trunc(res.data.currently.precipProbability * 100) + "%",
+                            rainChance: Math.trunc(res.data.daily.data[0].precipProbability * 100) + "%",
                             daySummary: res.data.daily.data[0].summary,
                             temperatureHigh: Math.trunc(res.data.daily.data[0].temperatureHigh) + tempIcon,
                             temperatureLow: Math.trunc(res.data.daily.data[0].temperatureLow) + tempIcon,
@@ -154,7 +154,7 @@ export default class MainSource extends Component {
             <div class="container-fluid">
                 <div class="card">
                     <img class="logo mx-auto" src="./src/app/assets/images/Weather-or-Pop.svg" alt="Smiley face" height="90" width="90" />
-                    <div class="container">
+                    <div class="container-fluid">
                         <div class="row"> 
                             <form class="form-group col-sm-6" onSubmit={this.locationSubmit.bind(this)}>
                                 <input 
@@ -198,7 +198,7 @@ export default class MainSource extends Component {
                             </form>
                         </div>
                     </div>
-                    <div class="container">
+                    <div class="container-fluid">
                         <div class="row">
                             <div class="col-12">
                                 <div class="row">
@@ -208,12 +208,14 @@ export default class MainSource extends Component {
                                                 <h2 class="location-size">{this.state.mapBox.location}</h2>
                                             </div>
                                             <div class="currentTemp col-12">
-                                                <div class="row">
-                                                    <div class="col-6 currentTempDegrees">
-                                                        <h2 class="currentTemp-size">{this.state.darkSky.temp}</h2>
-                                                    </div>
-                                                    <div class="col-6 currentTempIcon">
-                                                        <h1 class="currentTempIcon-size"><i class={this.state.weatherIcon}></i></h1>
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-6 currentTempDegrees">
+                                                            <h2 class="currentTemp-size">{this.state.darkSky.temp}</h2>
+                                                        </div>
+                                                        <div class="col-6 currentTempIcon">
+                                                            <h1 class="currentTempIcon-size"><i class={this.state.weatherIcon}></i></h1>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
