@@ -166,7 +166,7 @@ export default class MainSource extends Component {
                                     id="locationName" 
                                     placeholder="Location"
                                 />
-                                <label>
+                                <label class="coordinates-size">
                                     {this.state.mapBox.coordinates}
                                 </label>
                             </form>

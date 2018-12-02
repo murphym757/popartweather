@@ -85,6 +85,10 @@ input {
     border-color: $spicyMix;
 }
 
+.coordinates-size {
+    color: $desertSand;
+}
+
 .location-size,
 .currentTempDegrees-size {
     font-size: 2em;
@@ -624,5 +628,71 @@ input {
 /* 4K Resolution (Computers, 3840px and up) */
 
 @media (min-width: 3840px) and (orientation: landscape) {
-
+    input {
+        height: 18em;
+    }
+    .iconFont {
+        font-size: 8em;
+    }
+    .dataFont {
+        font-size: 8em;
+    }
+    .contentTitleFont {
+        font-size: 4em;
+    }
+    .location-size {
+        font-size: 6em;
+        padding-bottom: 2em;
+    }
+    .summaryForDay-size {
+        font-size: 4em;
+        padding-top: 4em;
+    }
+    .currentTemp-size {
+        font-size: 10em;
+        text-align: right;
+        justify-content: right;
+    }
+    .currentTempIcon-size {
+        font-size: 24em;
+    }
+    .locationTitle,
+    .currentTempDegrees,
+    .currentTempIcon,
+    .summaryForDay,
+    .currentTempIcon-size,
+    .iconFont {
+    color: $desertSand;
+    -webkit-text-stroke: 5px $spicyMix;
+    text-shadow: 0px 4.1px 4.03px $spicyMix,
+                 0px 4.2px 4.06px $spicyMix,
+                 0px 4.3px 4.09px $spicyMix,
+                 0px 4.4px 4.12px $spicyMix,
+                 0px 4.5px 4.15px $spicyMix,
+                 0px 4.6px 4.18px $spicyMix,
+                 0px 4.7px 4.21px $spicyMix,
+                 0px 4.8px 4.24px $spicyMix,
+                 0px 4.9px 4.27px $spicyMix,
+                 0px 5px   4.30px $spicyMix,
+                 0px 5.1px 4.33px $spicyMix,
+                 0px 5.2px 4.36px $spicyMix,
+                 0px 5.3px 4.39px $spicyMix,
+                 0px 5.4px 4.42px $spicyMix,
+                 0px 5.5px 4.45px $spicyMix,
+                 0px 5.6px 4.48px $spicyMix,
+                 0px 5.7px 4.51px $spicyMix,
+                 0px 5.8px 4.54px $spicyMix,
+                 0px 5.9px 4.57px $spicyMix,
+                 0px 6px   4.60px $spicyMix,
+                 0px 6.1px 4.63px $spicyMix,
+                 0px 6.2px 4.66px $spicyMix,
+                 0px 6.3px 4.69px $spicyMix,
+                 0px 6.4px 4.72px $spicyMix,
+                 0px 6.5px 4.75px $spicyMix,
+                 0px 6.6px 4.78px $spicyMix,
+                 0px 6.7px 4.81px $spicyMix,
+                 0px 6.8px 4.84px $spicyMix,
+                 0px 6.9px 4.87px $spicyMix,
+                 0px 7px   4.90px $spicyMix
+    }
 }
