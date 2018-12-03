@@ -6,5 +6,6 @@ import bootstrapGrid from '../node_modules/bootstrap/dist/css/bootstrap-grid.min
 import bootstrapJs from '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import './app/assets/styles/styles.scss';
 import fontStyles from './app/assets/styles/fonts.scss';
+import customBootstrap from './app/assets/styles/customBootstrap.scss';
 
 render(<MainSource />, document.getElementById("app"));

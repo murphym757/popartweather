@@ -1,0 +1,49 @@
+$shadowBlue: #6c8ead;
+$desertSand: #ead2ac;
+$spicyMix: #885053;
+
+.btn-popartButton { 
+    color: $desertSand; 
+    background-color: $spicyMix; 
+    border-color: $spicyMix; 
+  } 
+   
+  .btn-popartButton:hover, 
+  .btn-popartButton:focus, 
+  .btn-popartButton:active, 
+  .btn-popartButton.active, 
+  .open .dropdown-toggle.btn-popartButton { 
+    color: $spicyMix; 
+    background-color: $desertSand; 
+    border-color: $desertSand; 
+  } 
+   
+  .btn-popartButton:active, 
+  .btn-popartButton.active, 
+  .open .dropdown-toggle.btn-popartButton { 
+    background-image: none; 
+  } 
+   
+  .btn-popartButton.disabled, 
+  .btn-popartButton[disabled], 
+  fieldset[disabled] .btn-popartButton, 
+  .btn-popartButton.disabled:hover, 
+  .btn-popartButton[disabled]:hover, 
+  fieldset[disabled] .btn-popartButton:hover, 
+  .btn-popartButton.disabled:focus, 
+  .btn-popartButton[disabled]:focus, 
+  fieldset[disabled] .btn-popartButton:focus, 
+  .btn-popartButton.disabled:active, 
+  .btn-popartButton[disabled]:active, 
+  fieldset[disabled] .btn-popartButton:active, 
+  .btn-popartButton.disabled.active, 
+  .btn-popartButton[disabled].active, 
+  fieldset[disabled] .btn-popartButton.active { 
+    background-color: $spicyMix; 
+    border-color: $desertSand; 
+  } 
+   
+  .btn-popartButton .badge { 
+    color: $spicyMix; 
+    background-color: $desertSand; 
+  }

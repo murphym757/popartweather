@@ -37,7 +37,7 @@ img {
 }
 
 .card-forecast {
-    background-color: $spicyMix;
+    background-color: $shadowBlue;
 }
 
 .logo,
@@ -48,7 +48,9 @@ img {
 .sunArrowCombo,
 .dataFont,
 .iconFont,
-.contentTitleFont {
+.contentTitleFont,
+.forecastTempIcon-size,
+.forecastData-size {
     text-align: center;
     justify-content: center;
 }
@@ -88,9 +90,17 @@ input {
     background-color: $desertSand;
     border-color: $spicyMix;
 }
+.forecastIcon-size {
+    color: $spicyMix;
+}
+.forecastData-size {
+    color: $desertSand;
+    -webkit-text-stroke: 1px $spicyMix;
+}
 
 .coordinates-size {
     color: $desertSand;
+    -webkit-text-stroke: 1px $spicyMix;
 }
 
 .location-size,
@@ -111,7 +121,8 @@ input {
     justify-content: right;
 }
 
-.currentTempIcon-size {
+.currentTempIcon-size,
+.forecastData-size {
     text-align: left;
     justify-content: left;
 }
@@ -122,7 +133,8 @@ input {
 .currentTempIcon,
 .summaryForDay,
 .currentTempIcon-size,
-.iconFont {
+.iconFont,
+.forecastTempIcon-size {
     color: $desertSand;
     -webkit-text-stroke: 1px $spicyMix;
     text-shadow: 0px 0.1px 0.03px $spicyMix,
@@ -660,6 +672,14 @@ input {
     .currentTempIcon-size {
         font-size: 24em;
     }
+    .forecastData-size,
+    .forecastIcon-size {
+        font-size: 4em;
+    }
+    .forecastMainTempIcon-size {
+        font-size: 8em;
+    }
+
     .locationTitle,
     .currentTempDegrees,
     .currentTempIcon,
