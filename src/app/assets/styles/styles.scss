@@ -127,6 +127,26 @@ input {
     justify-content: left;
 }
 
+.carousel-indicators li {
+    background-color: $shadowBlue;
+}
+
+.carousel-indicators .active {
+    background-color: $shadowBlue;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none;
+}
+
+.carousel-control-next-icon:after {
+  color: $shadowBlue;
+}
+
+.carousel-control-prev-icon:after {
+  color: $shadowBlue;
+}
 
 .locationTitle,
 .currentTempDegrees,

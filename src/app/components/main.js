@@ -792,41 +792,423 @@ export default class MainSource extends Component {
                                     </div>
                                 </div>
                                 <div class="d-lg-none"> {/* Forecast for Sceens smaller than "Large" */}
-                                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                    <div id="carouselLandscapeControls" class="carousel slide d-none d-md-block" data-ride="carousel"> {/* Landscape View Carousel */}
                                     <ol class="carousel-indicators">
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                                    </ol>
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <div class="card">
-                                                <h1>Rooftop</h1>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                        </ol>
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active"> 
+                                                <div class="card">
+                                                    <div class="row"> 
+                                                        <div class="card card-forecast col-3 rounded-0"> {/* Day 0 */}
+                                                            <div class="row">
+                                                                    <h6 class="forecastData-size forecastTempIcon-size col-12">{this.state.darkSky.day0Time}</h6>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.highTemperatureLogoAlt}></i></h6>
+                                                                    <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureHigh}</h6>
+                                                                </div>  
+                                                                <div class="row">
+                                                                    <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.lowTemperatureLogoAlt}></i></h6>
+                                                                    <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureLow}</h6>
+                                                                </div>
+                                                                    
+                                                                <div class="row">
+                                                                    <h1 class="forecastTempIcon-size forecastMainTempIcon-size col-12"><i class={this.state.weatherIconDay0}></i></h1>
+                                                                </div>
+                                                                    
+                                                                <div class="row">
+                                                                    <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.rainChanceUmbrella}></i></h6>
+                                                                    <h6 class="forecastData-size col-9">{this.state.darkSky.rainChanceDay0}</h6>
+                                                                </div>
+                                                            </div>
+                                                        <div class="card card-forecast col-3 rounded-0"> {/* Day 1 */}
+                                                            <div class="row">
+                                                                <h6 class="forecastData-size forecastTempIcon-size col-12">{this.state.darkSky.day1Time}</h6>
+                                                            </div>
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.highTemperatureLogoAlt}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureHighDay1}</h6>
+                                                            </div>  
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.lowTemperatureLogoAlt}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureLowDay1}</h6>
+                                                            </div>
+                                                                
+                                                            <div class="row">
+                                                                <h1 class="forecastTempIcon-size forecastMainTempIcon-size col-12"><i class={this.state.weatherIconDay1}></i></h1>
+                                                            </div>
+                                                                
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.rainChanceUmbrella}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.rainChanceDay1}</h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card card-forecast col-3 rounded-0"> {/* Day 2 */}
+                                                            <div class="row">
+                                                                    <h6 class="forecastData-size forecastTempIcon-size col-12">{this.state.darkSky.day2Time}</h6>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.highTemperatureLogoAlt}></i></h6>
+                                                                    <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureHighDay2}</h6>
+                                                                </div>  
+                                                                <div class="row">
+                                                                    <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.lowTemperatureLogoAlt}></i></h6>
+                                                                    <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureLowDay2}</h6>
+                                                                </div>
+                                                                    
+                                                                <div class="row">
+                                                                    <h1 class="forecastTempIcon-size forecastMainTempIcon-size col-12"><i class={this.state.weatherIconDay2}></i></h1>
+                                                                </div>
+                                                                    
+                                                                <div class="row">
+                                                                    <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.rainChanceUmbrella}></i></h6>
+                                                                    <h6 class="forecastData-size col-9">{this.state.darkSky.rainChanceDay2}</h6>
+                                                                </div>
+                                                            </div>
+                                                        <div class="card card-forecast col-3 rounded-0"> {/* Day 3 */}
+                                                            <div class="row">
+                                                                <h6 class="forecastData-size forecastTempIcon-size col-12">{this.state.darkSky.day3Time}</h6>
+                                                            </div>
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.highTemperatureLogoAlt}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureHighDay3}</h6>
+                                                            </div>  
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.lowTemperatureLogoAlt}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureLowDay3}</h6>
+                                                            </div>
+                                                                
+                                                            <div class="row">
+                                                                <h1 class="forecastTempIcon-size forecastMainTempIcon-size col-12"><i class={this.state.weatherIconDay3}></i></h1>
+                                                            </div>
+                                                                
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.rainChanceUmbrella}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.rainChanceDay3}</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="carousel-caption active">
-                                                <h5>Warm Weather</h5>
-                                                <p>Art basel is coming.</p>
+                                            <div class="carousel-item">{/* Section Section */}
+                                                <div class="card">
+                                                    <div class="row"> 
+                                                        <div class="card card-forecast col-3 rounded-0"> {/* Day 4 */}
+                                                            <div class="row">
+                                                                    <h6 class="forecastData-size forecastTempIcon-size col-12">{this.state.darkSky.day4Time}</h6>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.highTemperatureLogoAlt}></i></h6>
+                                                                    <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureHighDay4}</h6>
+                                                                </div>  
+                                                                <div class="row">
+                                                                    <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.lowTemperatureLogoAlt}></i></h6>
+                                                                    <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureLowDay4}</h6>
+                                                                </div>
+                                                                    
+                                                                <div class="row">
+                                                                    <h1 class="forecastTempIcon-size forecastMainTempIcon-size col-12"><i class={this.state.weatherIconDay4}></i></h1>
+                                                                </div>
+                                                                    
+                                                                <div class="row">
+                                                                    <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.rainChanceUmbrella}></i></h6>
+                                                                    <h6 class="forecastData-size col-9">{this.state.darkSky.rainChanceDay4}</h6>
+                                                                </div>
+                                                            </div>
+                                                        <div class="card card-forecast col-3 rounded-0"> {/* Day 5 */}
+                                                            <div class="row">
+                                                                <h6 class="forecastData-size forecastTempIcon-size col-12">{this.state.darkSky.day5Time}</h6>
+                                                            </div>
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.highTemperatureLogoAlt}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureHighDay5}</h6>
+                                                            </div>  
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.lowTemperatureLogoAlt}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureLowDay5}</h6>
+                                                            </div>
+                                                                
+                                                            <div class="row">
+                                                                <h1 class="forecastTempIcon-size forecastMainTempIcon-size col-12"><i class={this.state.weatherIconDay5}></i></h1>
+                                                            </div>
+                                                                
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.rainChanceUmbrella}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.rainChanceDay5}</h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card card-forecast col-3 rounded-0"> {/* Day 6 */}
+                                                            <div class="row">
+                                                                    <h6 class="forecastData-size forecastTempIcon-size col-12">{this.state.darkSky.day6Time}</h6>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.highTemperatureLogoAlt}></i></h6>
+                                                                    <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureHighDay6}</h6>
+                                                                </div>  
+                                                                <div class="row">
+                                                                    <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.lowTemperatureLogoAlt}></i></h6>
+                                                                    <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureLowDay6}</h6>
+                                                                </div>
+                                                                    
+                                                                <div class="row">
+                                                                    <h1 class="forecastTempIcon-size forecastMainTempIcon-size col-12"><i class={this.state.weatherIconDay6}></i></h1>
+                                                                </div>
+                                                                    
+                                                                <div class="row">
+                                                                    <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.rainChanceUmbrella}></i></h6>
+                                                                    <h6 class="forecastData-size col-9">{this.state.darkSky.rainChanceDay6}</h6>
+                                                                </div>
+                                                            </div>
+                                                        <div class="card card-forecast col-3 rounded-0"> {/* Day 7 */}
+                                                            <div class="row">
+                                                                <h6 class="forecastData-size forecastTempIcon-size col-12">{this.state.darkSky.day7Time}</h6>
+                                                            </div>
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.highTemperatureLogoAlt}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureHighDay7}</h6>
+                                                            </div>  
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.lowTemperatureLogoAlt}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureLowDay7}</h6>
+                                                            </div>
+                                                                
+                                                            <div class="row">
+                                                                <h1 class="forecastTempIcon-size forecastMainTempIcon-size col-12"><i class={this.state.weatherIconDay7}></i></h1>
+                                                            </div>
+                                                                
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.rainChanceUmbrella}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.rainChanceDay7}</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>    
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="carousel-item">
-                                            <div class="card">
-                                                <h1>Day 1 Weather</h1>
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <div class="card">
-                                                <h1>Day 2 Weather</h1>
-                                            </div>
-                                        </div>
+                                        <a class="carousel-control-prev" href="#carouselLandscapeControls" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselLandscapeControls" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
                                     </div>
-                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
+                                    <div id="carouselExampleIndicators" class="carousel slide d-md-none" data-ride="carousel"> {/* Portrait View Carousel */}
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                                        </ol>
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <div class="card">
+                                                    <div class="row"> 
+                                                        <div class="card card-forecast col-6 rounded-0"> {/* Day 0 */}
+                                                            <div class="row">
+                                                                    <h6 class="forecastData-size forecastTempIcon-size col-12">{this.state.darkSky.day0Time}</h6>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.highTemperatureLogoAlt}></i></h6>
+                                                                    <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureHigh}</h6>
+                                                                </div>  
+                                                                <div class="row">
+                                                                    <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.lowTemperatureLogoAlt}></i></h6>
+                                                                    <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureLow}</h6>
+                                                                </div>
+                                                                    
+                                                                <div class="row">
+                                                                    <h1 class="forecastTempIcon-size forecastMainTempIcon-size col-12"><i class={this.state.weatherIconDay0}></i></h1>
+                                                                </div>
+                                                                    
+                                                                <div class="row">
+                                                                    <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.rainChanceUmbrella}></i></h6>
+                                                                    <h6 class="forecastData-size col-9">{this.state.darkSky.rainChanceDay0}</h6>
+                                                                </div>
+                                                            </div>
+                                                        <div class="card card-forecast col-6 rounded-0"> {/* Day 1 */}
+                                                            <div class="row">
+                                                                <h6 class="forecastData-size forecastTempIcon-size col-12">{this.state.darkSky.day1Time}</h6>
+                                                            </div>
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.highTemperatureLogoAlt}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureHighDay1}</h6>
+                                                            </div>  
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.lowTemperatureLogoAlt}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureLowDay1}</h6>
+                                                            </div>
+                                                                
+                                                            <div class="row">
+                                                                <h1 class="forecastTempIcon-size forecastMainTempIcon-size col-12"><i class={this.state.weatherIconDay1}></i></h1>
+                                                            </div>
+                                                                
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.rainChanceUmbrella}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.rainChanceDay1}</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <div class="card">
+                                                    <div class="row"> 
+                                                        <div class="card card-forecast col-6 rounded-0"> {/* Day 2 */}
+                                                            <div class="row">
+                                                                    <h6 class="forecastData-size forecastTempIcon-size col-12">{this.state.darkSky.day2Time}</h6>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.highTemperatureLogoAlt}></i></h6>
+                                                                    <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureHighDay2}</h6>
+                                                                </div>  
+                                                                <div class="row">
+                                                                    <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.lowTemperatureLogoAlt}></i></h6>
+                                                                    <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureLowDay2}</h6>
+                                                                </div>
+                                                                    
+                                                                <div class="row">
+                                                                    <h1 class="forecastTempIcon-size forecastMainTempIcon-size col-12"><i class={this.state.weatherIconDay2}></i></h1>
+                                                                </div>
+                                                                    
+                                                                <div class="row">
+                                                                    <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.rainChanceUmbrella}></i></h6>
+                                                                    <h6 class="forecastData-size col-9">{this.state.darkSky.rainChanceDay2}</h6>
+                                                                </div>
+                                                            </div>
+                                                        <div class="card card-forecast col-6 rounded-0"> {/* Day 3 */}
+                                                            <div class="row">
+                                                                <h6 class="forecastData-size forecastTempIcon-size col-12">{this.state.darkSky.day3Time}</h6>
+                                                            </div>
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.highTemperatureLogoAlt}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureHighDay3}</h6>
+                                                            </div>  
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.lowTemperatureLogoAlt}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureLowDay3}</h6>
+                                                            </div>
+                                                                
+                                                            <div class="row">
+                                                                <h1 class="forecastTempIcon-size forecastMainTempIcon-size col-12"><i class={this.state.weatherIconDay3}></i></h1>
+                                                            </div>
+                                                                
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.rainChanceUmbrella}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.rainChanceDay3}</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                            <div class="row"> 
+                                                    <div class="card card-forecast col-6 rounded-0"> {/* Day 4 */}
+                                                        <div class="row">
+                                                                <h6 class="forecastData-size forecastTempIcon-size col-12">{this.state.darkSky.day4Time}</h6>
+                                                            </div>
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.highTemperatureLogoAlt}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureHighDay4}</h6>
+                                                            </div>  
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.lowTemperatureLogoAlt}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureLowDay4}</h6>
+                                                            </div>
+                                                                
+                                                            <div class="row">
+                                                                <h1 class="forecastTempIcon-size forecastMainTempIcon-size col-12"><i class={this.state.weatherIconDay4}></i></h1>
+                                                            </div>
+                                                                
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.rainChanceUmbrella}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.rainChanceDay4}</h6>
+                                                            </div>
+                                                        </div>
+                                                    <div class="card card-forecast col-6 rounded-0"> {/* Day 5 */}
+                                                        <div class="row">
+                                                            <h6 class="forecastData-size forecastTempIcon-size col-12">{this.state.darkSky.day5Time}</h6>
+                                                        </div>
+                                                        <div class="row">
+                                                            <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.highTemperatureLogoAlt}></i></h6>
+                                                            <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureHighDay5}</h6>
+                                                        </div>  
+                                                        <div class="row">
+                                                            <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.lowTemperatureLogoAlt}></i></h6>
+                                                            <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureLowDay5}</h6>
+                                                        </div>
+                                                            
+                                                        <div class="row">
+                                                            <h1 class="forecastTempIcon-size forecastMainTempIcon-size col-12"><i class={this.state.weatherIconDay5}></i></h1>
+                                                        </div>
+                                                            
+                                                        <div class="row">
+                                                            <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.rainChanceUmbrella}></i></h6>
+                                                            <h6 class="forecastData-size col-9">{this.state.darkSky.rainChanceDay5}</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <div class="row"> 
+                                                    <div class="card card-forecast col-6 rounded-0"> {/* Day 6 */}
+                                                        <div class="row">
+                                                                <h6 class="forecastData-size forecastTempIcon-size col-12">{this.state.darkSky.day6Time}</h6>
+                                                            </div>
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.highTemperatureLogoAlt}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureHighDay6}</h6>
+                                                            </div>  
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.lowTemperatureLogoAlt}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureLowDay6}</h6>
+                                                            </div>
+                                                                
+                                                            <div class="row">
+                                                                <h1 class="forecastTempIcon-size forecastMainTempIcon-size col-12"><i class={this.state.weatherIconDay6}></i></h1>
+                                                            </div>
+                                                                
+                                                            <div class="row">
+                                                                <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.rainChanceUmbrella}></i></h6>
+                                                                <h6 class="forecastData-size col-9">{this.state.darkSky.rainChanceDay6}</h6>
+                                                            </div>
+                                                        </div>
+                                                    <div class="card card-forecast col-6 rounded-0"> {/* Day 7 */}
+                                                        <div class="row">
+                                                            <h6 class="forecastData-size forecastTempIcon-size col-12">{this.state.darkSky.day7Time}</h6>
+                                                        </div>
+                                                        <div class="row">
+                                                            <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.highTemperatureLogoAlt}></i></h6>
+                                                            <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureHighDay7}</h6>
+                                                        </div>  
+                                                        <div class="row">
+                                                            <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.lowTemperatureLogoAlt}></i></h6>
+                                                            <h6 class="forecastData-size col-9">{this.state.darkSky.temperatureLowDay7}</h6>
+                                                        </div>
+                                                            
+                                                        <div class="row">
+                                                            <h1 class="forecastTempIcon-size forecastMainTempIcon-size col-12"><i class={this.state.weatherIconDay7}></i></h1>
+                                                        </div>
+                                                            
+                                                        <div class="row">
+                                                            <h6 class="forecastIcon-size col-3"><i class={this.state.darkSky.rainChanceUmbrella}></i></h6>
+                                                            <h6 class="forecastData-size col-9">{this.state.darkSky.rainChanceDay7}</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
                                     </div>   
                                 </div>
                             </div>
