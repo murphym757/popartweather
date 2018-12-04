@@ -1,0 +1,742 @@
+// Miami 1985 Color Palette
+$violet: #d080d7;
+$hotPink: #e87fcd;
+$powderPink: #f9d3ff;
+$oceanGreen: #70bac9;
+$skyBlue: #a7d0e3;
+$softBlack: #272727;
+
+$shadowBlue: #6c8ead;
+$desertSand: #ead2ac;
+$spicyMix: #885053;
+
+body {
+    display: table;
+    width: 100%;
+    height: auto;
+    background: no-repeat bottom center scroll;
+    background-color: $shadowBlue;
+    background-blend-mode: multiply;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; 
+    color: $softBlack;
+    font-family: 'LemonMilk';
+    font-size: 16px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.card {
+    background-color: $shadowBlue;
+    border: none;
+}
+
+.card-forecast {
+    background-color: $shadowBlue;
+}
+
+.logo,
+.locationTitle,
+.currentTempDegrees,
+.currentTempIcon,
+.summaryForDay,
+.sunArrowCombo,
+.dataFont,
+.iconFont,
+.contentTitleFont,
+.forecastTempIcon-size,
+.forecastData-size {
+    text-align: center;
+    justify-content: center;
+}
+
+// Forms
+input {
+    background-color: $desertSand;
+    color: $spicyMix;
+}
+
+.form-control:focus {
+    border-color: $spicyMix;
+    box-shadow: inset 0 1px 1px $spicyMix;
+  }
+
+.form-weatherOrPop::-moz-placeholder {
+    color: $spicyMix;
+}
+
+.form-weatherOrPop:-ms-input-placeholder {
+    color: $spicyMix;
+}
+
+.form-weatherOrPop::-webkit-input-placeholder {
+    color: $spicyMix;
+}
+
+.form-weatherOrPop:focus {
+    border-style: solid;
+    border-color: $spicyMix;
+    background-color: $desertSand;
+    color: $spicyMix;
+}
+
+.form-weatherOrPop {
+    color: $spicyMix;
+    background-color: $desertSand;
+    border-color: $spicyMix;
+}
+.forecastIcon-size {
+    color: $spicyMix;
+}
+.forecastData-size {
+    color: $desertSand;
+    -webkit-text-stroke: 1px $spicyMix;
+}
+
+.coordinates-size {
+    color: $desertSand;
+    -webkit-text-stroke: 1px $spicyMix;
+}
+
+.location-size,
+.currentTempDegrees-size {
+    font-size: 2em;
+}
+
+.currentTempIcon-size {
+    font-size: 8em;
+}
+
+.summaryForDay-size {
+    font-size: 1em;
+}
+
+.currentTemp-size {
+    text-align: right;
+    justify-content: right;
+}
+
+.currentTempIcon-size,
+.forecastData-size {
+    text-align: left;
+    justify-content: left;
+}
+
+.carousel-indicators li {
+    background-color: $shadowBlue;
+}
+
+.carousel-indicators .active {
+    background-color: $shadowBlue;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none;
+}
+
+.carousel-control-next-icon:after {
+  color: $shadowBlue;
+}
+
+.carousel-control-prev-icon:after {
+  color: $shadowBlue;
+}
+
+.locationTitle,
+.currentTempDegrees,
+.currentTempIcon,
+.summaryForDay,
+.currentTempIcon-size,
+.iconFont,
+.forecastTempIcon-size {
+    color: $desertSand;
+    -webkit-text-stroke: 1px $spicyMix;
+    text-shadow: 0px 0.1px 0.03px $spicyMix,
+                 0px 0.2px 0.06px $spicyMix,
+                 0px 0.3px 0.09px $spicyMix,
+                 0px 0.4px 0.12px $spicyMix,
+                 0px 0.5px 0.15px $spicyMix,
+                 0px 0.6px 0.18px $spicyMix,
+                 0px 0.7px 0.21px $spicyMix,
+                 0px 0.8px 0.24px $spicyMix,
+                 0px 0.9px 0.27px $spicyMix,
+                 0px 1px   0.30px $spicyMix,
+                 0px 1.1px 0.33px $spicyMix,
+                 0px 1.2px 0.36px $spicyMix,
+                 0px 1.3px 0.39px $spicyMix,
+                 0px 1.4px 0.42px $spicyMix,
+                 0px 1.5px 0.45px $spicyMix,
+                 0px 1.6px 0.48px $spicyMix,
+                 0px 1.7px 0.51px $spicyMix,
+                 0px 1.8px 0.54px $spicyMix,
+                 0px 1.9px 0.57px $spicyMix,
+                 0px 2px   0.60px $spicyMix,
+                 0px 2.1px 0.63px $spicyMix,
+                 0px 2.2px 0.66px $spicyMix,
+                 0px 2.3px 0.69px $spicyMix,
+                 0px 2.4px 0.72px $spicyMix,
+                 0px 2.5px 0.75px $spicyMix,
+                 0px 2.6px 0.78px $spicyMix,
+                 0px 2.7px 0.81px $spicyMix,
+                 0px 2.8px 0.84px $spicyMix,
+                 0px 2.9px 0.87px $spicyMix,
+                 0px 3px   0.90px $spicyMix,
+                 0px 3px   3px $spicyMix;
+}
+
+.contentTitleFont,
+.dataFont {
+    color: $desertSand;
+    -webkit-text-stroke: 1px $spicyMix;
+}
+
+/*--------------------------------------------*/
+
+  // Media Queries
+/* ---------------------------------------------------- */
+/* ---------------------------------------------------- */
+
+/* iphone 4 */
+@media only screen 
+    and (min-device-width: 320px) 
+    and (max-device-height: 480px) 
+    and (-webkit-device-pixel-ratio: 2) 
+    and (orientation: portrait) {
+        .currentTempIcon-size {
+            font-size: 6em;
+        }
+
+        .dataFont { // h3 = 24px
+            font-size: 1em;
+        }
+
+        .contentTitleFont { // h6 = 12px
+            font-size: 0.5em;
+        }
+
+}
+@media only screen 
+    and (min-device-width: 320px) 
+    and (max-device-height: 480px) 
+    and (-webkit-device-pixel-ratio: 2) 
+    and (orientation: landscape) {
+
+}
+
+/* iphone 5 */
+@media only screen 
+    and (min-device-width: 320px) 
+    and (max-device-height: 568px) 
+    and (orientation: portrait) {
+        .location-size {
+            font-size: 1em;
+            padding-bottom: 1em;
+        }
+        .currentTempDegrees-size {
+            font-size: 1em;
+        }
+        .currentTemp-size {
+            font-size: 3em;
+        }
+        .currentTempIcon-size {
+            font-size: 6em;
+        }
+        .summaryForDay-size {
+            font-size: 1em;
+            padding-top: 1em;
+        }
+        .dataFont { // h3 = 24px
+            font-size: 1em;
+        }
+        .contentTitleFont { // h6 = 12px
+            font-size: 0.58em;
+        }
+
+}
+
+@media only screen 
+    and (min-device-width: 320px) 
+    and (max-device-height: 568px) 
+    and (orientation: landscape) {
+        .location-size {
+            font-size: 1em;
+            padding-bottom: 1em;
+        }
+        .currentTempDegrees-size {
+            font-size: 1em;
+        }
+        .currentTemp-size {
+            font-size: 3em;
+        }
+        .currentTempIcon-size {
+            font-size: 6em;
+        }
+        .summaryForDay-size {
+            font-size: 1em;
+            padding-top: 1em;
+        }
+        .dataFont { // h3 = 24px
+            font-size: 1em;
+        }
+        .contentTitleFont { // h6 = 12px
+            font-size: 0.58em;
+        }
+}
+
+/* Galaxy S5 */
+@media only screen 
+    and (min-device-width: 360px) 
+    and (max-device-height: 640px) 
+    and (orientation: portrait) {
+
+}
+
+@media only screen 
+    and (min-device-width: 360px) 
+    and (max-device-height: 640px) 
+    and (orientation: landscape) {
+        
+}
+
+/* iphone 6, 6s, 7, 8 */
+@media only screen 
+    and (min-device-width: 375px) 
+    and (max-device-height: 667px) 
+    and (-webkit-device-pixel-ratio: 2)
+    and (orientation: portrait) {
+        .location-size {
+            font-size: 1em;
+            padding-bottom: 1em;
+        }
+        .currentTemp-size {
+            font-size: 2em;
+        }
+        .currentTempIcon-size {
+            font-size: 5em;
+            text-align: left;
+            justify-content: left;
+        }
+        .summaryForDay-size {
+            font-size: 1em;
+            padding-top: 1em;
+        }
+        .dataFont { // h3 = 24px
+            font-size: 1em;
+        }
+        .contentTitleFont { // h6 = 12px
+            font-size: 0.6em;
+        }
+}
+@media only screen 
+    and (min-device-width: 375px) 
+    and (max-device-height: 667px) 
+    and (-webkit-device-pixel-ratio: 2)
+    and (orientation: landscape) {
+        .location-size {
+            font-size: 1em;
+            padding-bottom: 3em;
+        }
+        .currentTemp-size {
+            font-size: 2em;
+            text-align: right;
+            justify-content: right;
+        }
+        .currentTempIcon-size {
+            font-size: 6em;
+            text-align: left;
+            justify-content: left;
+        }
+        .summaryForDay-size {
+            font-size: 1em;
+            padding-top: 3em;
+        }
+        .dataFont { // h3 = 24px
+            font-size: 1em;
+        }
+        .contentTitleFont { // h6 = 12px
+            font-size: 0.6em;
+        }
+}
+
+/* iphone 6+, 6s+, 7+, 8+ */
+@media only screen 
+    and (min-device-width: 414px)
+    and (max-device-height: 736px) 
+    and (-webkit-device-pixel-ratio: 3) 
+    and (orientation: portrait) {
+        .currentTemp-size {
+            font-size: 3em;
+            text-align: right;
+            justify-content: right;
+        }
+        .iconFont {
+            font-size: 1.5em;
+        }
+        .dataFont {
+            font-size: 1.5em;
+        }
+        .contentTitleFont {
+            font-size: 0.8em;
+        }
+        .location-size {
+            font-size: 1.5em;
+            padding-bottom: 1.5em;
+        }
+        .summaryForDay-size {
+            padding-top: 2em;
+        }
+    }
+
+    @media only screen 
+    and (min-device-width: 414px)
+    and (max-device-height: 736px) 
+    and (-webkit-device-pixel-ratio: 3) 
+    and (orientation: landscape) {
+        .iconFont {
+            font-size: 1em;
+        }
+        .dataFont {
+            font-size: 1em;
+        }
+        .contentTitleFont {
+            font-size: 0.7em;
+        }
+        .location-size {
+            font-size: 1em;
+            padding-bottom: 2em;
+        }
+        .summaryForDay-size {
+            font-size: 1em;
+            padding-top: 2em;
+        }
+    }
+
+/* iphone X */
+@media only screen 
+    and (min-device-width: 375px) 
+    and (max-device-height: 812px) 
+    and (-webkit-device-pixel-ratio: 3) 
+    and (orientation: portrait) {
+        .currentTemp-size {
+            font-size: 3em;
+            text-align: right;
+            justify-content: right;
+        }
+        .iconFont {
+            font-size: 1.5em;
+        }
+        .dataFont {
+            font-size: 1em;
+        }
+        .contentTitleFont {
+            font-size: 0.7em;
+        }
+        .location-size {
+            font-size: 1.5em;
+            padding-bottom: 1.5em;
+        }
+        .summaryForDay-size {
+            padding-top: 2em;
+        }
+    }
+
+@media only screen 
+    and (min-device-width: 375px) 
+    and (max-device-height: 812px) 
+    and (-webkit-device-pixel-ratio: 3) 
+    and (orientation: landscape) {
+        .currentTemp-size {
+            font-size: 2em;
+            text-align: right;
+            justify-content: right;
+        }
+        .iconFont {
+            font-size: 1.5em;
+        }
+        .dataFont {
+            font-size: 1em;
+        }
+        .contentTitleFont {
+            font-size: 0.7em;
+        }
+        .location-size {
+            font-size: 1.5em;
+            padding-bottom: 1em;
+        }
+        .summaryForDay-size {
+            padding-top: 1em;
+        }
+    }
+
+/* Pixel 2 */
+@media only screen 
+    and (min-device-width: 411px) 
+    and (max-device-height: 731px) 
+    and (-webkit-device-pixel-ratio: 3) 
+    and (orientation: portrait) {
+
+    }
+
+/* ---------------------------------------------------- */
+
+/* Ipad */
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-height: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2) 
+  and (orientation: portrait) {
+    .currentTemp-size {
+        font-size: 2.5em;
+        text-align: right;
+        justify-content: right;
+    }
+    .iconFont {
+        font-size: 1.5em;
+    }
+    .dataFont {
+        font-size: 1em;
+    }
+    .contentTitleFont {
+        font-size: 0.7em;
+    }
+    .contentTitleFont {
+        font-size: 0.8em;
+    }
+    .location-size {
+        font-size: 1.5em;
+        padding-bottom: 1em;
+    }
+    .summaryForDay-size {
+        padding-top: 1em;
+    }
+  }
+
+  @media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-height: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2) 
+  and (orientation: landscape) {
+    .contentTitleFont {
+        font-size: 0.8em;
+    }
+    .location-size {
+        font-size: 1.5em;
+        padding-bottom: 2em;
+    }
+    .summaryForDay-size {
+        padding-top: 3em;
+    }
+    .currentTemp-size {
+        font-size: 2.5em;
+        text-align: right;
+        justify-content: right;
+    }
+    .iconFont {
+        font-size: 2em;
+    }
+    .dataFont {
+        font-size: 2em;
+    }
+    .contentTitleFont {
+        font-size: 1em;
+    }
+    .currentTempIcon-size {
+        font-size: 11em;
+    }
+  }
+
+
+/* Ipad  Pro*/
+
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-height: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 2) 
+  and (orientation: portrait) {
+    .contentTitleFont {
+        font-size: 0.8em;
+    }
+    .location-size {
+        font-size: 1.5em;
+        padding-bottom: 1em;
+    }
+    .summaryForDay-size {
+        padding-top: 2em;
+    }
+    .currentTemp-size {
+        font-size: 2.5em;
+        text-align: right;
+        justify-content: right;
+    }
+    .iconFont {
+        font-size: 2em;
+    }
+    .dataFont {
+        font-size: 2em;
+    }
+    .contentTitleFont {
+        font-size: 1em;
+    }
+    .currentTempIcon-size {
+        font-size: 11em;
+    }
+  }
+
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-height: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 2) 
+  and (orientation: landscape) {
+    .contentTitleFont {
+        font-size: 0.8em;
+    }
+    .location-size {
+        font-size: 1.5em;
+        padding-bottom: 2em;
+    }
+    .summaryForDay-size {
+        padding-top: 3em;
+    }
+    .currentTemp-size {
+        font-size: 2.5em;
+        text-align: right;
+        justify-content: right;
+    }
+    .iconFont {
+        font-size: 2em;
+    }
+    .dataFont {
+        font-size: 2em;
+    }
+    .contentTitleFont {
+        font-size: 1em;
+    }
+    .currentTempIcon-size {
+        font-size: 11em;
+    }
+}
+
+/* ---------------------------------------------------- */
+
+/* MDPI Screens (Computers, 1440px and up) */
+
+@media (min-width: 1280px) and (max-width: 1439px) and (orientation: landscape) {
+    .location-size {
+        padding-bottom: 2em;
+    }
+    .summaryForDay-size {
+        padding-top: 2em;
+    }
+    .currentTemp-size {
+        font-size: 3em;
+        text-align: right;
+        justify-content: right;
+    }
+}
+
+/* ---------------------------------------------------- */
+
+/* Large devices (Computers, 1440px and up) */
+
+@media (min-width: 1440px) and (max-width: 3839px) and (orientation: landscape) {
+    .location-size {
+        padding-bottom: 2em;
+    }
+    .summaryForDay-size {
+        padding-top: 2em;
+    }
+    .currentTemp-size {
+        font-size: 3em;
+        text-align: right;
+        justify-content: right;
+    }
+}
+
+/* ---------------------------------------------------- */
+
+/* 4K Resolution (Computers, 3840px and up) */
+
+@media (min-width: 3840px) and (orientation: landscape) {
+    input {
+        height: 18em;
+    }
+    .iconFont {
+        font-size: 8em;
+    }
+    .dataFont {
+        font-size: 8em;
+    }
+    .contentTitleFont {
+        font-size: 4em;
+    }
+    .location-size {
+        font-size: 6em;
+        padding-bottom: 2em;
+    }
+    .summaryForDay-size {
+        font-size: 4em;
+        padding-top: 4em;
+    }
+    .currentTemp-size {
+        font-size: 10em;
+        text-align: right;
+        justify-content: right;
+    }
+    .currentTempIcon-size {
+        font-size: 24em;
+    }
+    .forecastData-size,
+    .forecastIcon-size {
+        font-size: 4em;
+    }
+    .forecastMainTempIcon-size {
+        font-size: 8em;
+    }
+
+    .locationTitle,
+    .currentTempDegrees,
+    .currentTempIcon,
+    .summaryForDay,
+    .currentTempIcon-size,
+    .iconFont {
+    color: $desertSand;
+    -webkit-text-stroke: 5px $spicyMix;
+    text-shadow: 0px 4.1px 4.03px $spicyMix,
+                 0px 4.2px 4.06px $spicyMix,
+                 0px 4.3px 4.09px $spicyMix,
+                 0px 4.4px 4.12px $spicyMix,
+                 0px 4.5px 4.15px $spicyMix,
+                 0px 4.6px 4.18px $spicyMix,
+                 0px 4.7px 4.21px $spicyMix,
+                 0px 4.8px 4.24px $spicyMix,
+                 0px 4.9px 4.27px $spicyMix,
+                 0px 5px   4.30px $spicyMix,
+                 0px 5.1px 4.33px $spicyMix,
+                 0px 5.2px 4.36px $spicyMix,
+                 0px 5.3px 4.39px $spicyMix,
+                 0px 5.4px 4.42px $spicyMix,
+                 0px 5.5px 4.45px $spicyMix,
+                 0px 5.6px 4.48px $spicyMix,
+                 0px 5.7px 4.51px $spicyMix,
+                 0px 5.8px 4.54px $spicyMix,
+                 0px 5.9px 4.57px $spicyMix,
+                 0px 6px   4.60px $spicyMix,
+                 0px 6.1px 4.63px $spicyMix,
+                 0px 6.2px 4.66px $spicyMix,
+                 0px 6.3px 4.69px $spicyMix,
+                 0px 6.4px 4.72px $spicyMix,
+                 0px 6.5px 4.75px $spicyMix,
+                 0px 6.6px 4.78px $spicyMix,
+                 0px 6.7px 4.81px $spicyMix,
+                 0px 6.8px 4.84px $spicyMix,
+                 0px 6.9px 4.87px $spicyMix,
+                 0px 7px   4.90px $spicyMix
+    }
+}
