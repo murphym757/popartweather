@@ -379,7 +379,7 @@ export default class MainSource extends Component {
         return (
             <div class="container-fluid">
                 <div class="card">
-                    <img class="logo mx-auto" src="./src/app/assets/images/Weather-or-Pop.svg" alt="Smiley face" height="90" width="90" /> {/* Logo */}
+                    <img class="logo mx-auto pt-2 pb-2" src="./src/app/assets/images/PopArtWeatherLogo.svg" alt="Logo" height="240" width="240" /> {/* Logo */}
                     <div class="container-fluid"> {/* Top Section (Form Area) */}
                         <div class="row">
                             <form class="form-group col-sm-6" onSubmit={this.locationSubmit.bind(this)}> {/* Form Section (Location Input) */}

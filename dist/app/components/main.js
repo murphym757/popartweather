@@ -669,11 +669,11 @@ function (_Component) {
       }, _react.default.createElement("div", {
         class: "card"
       }, _react.default.createElement("img", {
-        class: "logo mx-auto",
-        src: "./src/app/assets/images/Weather-or-Pop.svg",
-        alt: "Smiley face",
-        height: "90",
-        width: "90"
+        class: "logo mx-auto pt-2 pb-2",
+        src: "./src/app/assets/images/PopArtWeatherLogo.svg",
+        alt: "Logo",
+        height: "240",
+        width: "240"
       }), " ", _react.default.createElement("div", {
         class: "container-fluid"
       }, " ", _react.default.createElement("div", {
