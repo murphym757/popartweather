@@ -22,8 +22,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        cacheDirectory: true,
-                        plugins: ['transform-class-properties']
+                        cacheDirectory: true
                     }
             },
                 exclude: /node_modules/
