@@ -10,7 +10,9 @@ export default class MainSource extends Component {
             locationInfo: {},
             generalInfo: {},
             darkSky: {},
-            mapBox: {},
+            mapBox: {
+                coordinates:"Press Enter/Return to display the coordinates (Lat, Lon)"
+            },
             location: null,
             locationLat: null,
             locationLon: null,
