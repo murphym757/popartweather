@@ -21,6 +21,7 @@ Using the Mapbox API, a set of coordinates are provide to the user. From there, 
 * [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) - PaaP host
 * [Mapbox API](https://www.mapbox.com/) - Coordinates/Map API
 * [Dark Sky API](https://darksky.net/dev) - Weather API
+* [Axios](https://github.com/axios/axios) - Fetches data from APIs
 
 ## Authors
 
